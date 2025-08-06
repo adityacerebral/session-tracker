@@ -10,7 +10,6 @@ from datetime import datetime
 async def lifespan(app: FastAPI):
     await connect_to_mongo()
     yield
-    await close_mongo_connection()
 
 app = FastAPI(
     title="Session and Page Tracking API",
@@ -27,6 +26,8 @@ app.add_middleware(
         "https://localhost:3000",
         "http://unfogg.cerebralzip.com",
         "https://unfogg.cerebralzip.com",
+        "http://discoveryqaz.cerebralzip.com",
+        "https://discoveryqaz.cerebralzip.com",
         "http://0.0.0.0:3000/",
         "http://0.0.0.0:3000"
     ],
