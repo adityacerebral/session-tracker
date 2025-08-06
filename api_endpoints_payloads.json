@@ -1,0 +1,219 @@
+{
+  "endpoints": [
+    {
+      "path": "/api/auth/validate-token",
+      "method": "POST",
+      "description": "Validate the provided JWT token and return user information",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name"
+      }
+    },
+    {
+      "path": "/api/auth/token-info",
+      "method": "POST",
+      "description": "Get detailed information from the JWT token",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name"
+      }
+    },
+    {
+      "path": "/api/auth/health",
+      "method": "POST",
+      "description": "Public health check endpoint for authentication service (no authentication required)",
+      "requires_auth": false,
+      "payload_example": {
+        "app": "your_app_name"
+      }
+    },
+    {
+      "path": "/api/sessions/start",
+      "method": "POST",
+      "description": "Start a new session",
+      "requires_auth": true,
+      "payload_example": {
+        "user": "username",
+        "time": "2024-01-01T12:00:00.000Z",
+        "status": "active",
+        "app": "your_app_name"
+      }
+    },
+    {
+      "path": "/api/sessions/pause",
+      "method": "POST",
+      "description": "Pause an active session",
+      "requires_auth": true,
+      "payload_example": {
+        "user": "username",
+        "session_id": "uuid-string",
+        "time": "2024-01-01T12:30:00.000Z",
+        "app": "your_app_name"
+      }
+    },
+    {
+      "path": "/api/sessions/resume",
+      "method": "POST",
+      "description": "Resume a paused session",
+      "requires_auth": true,
+      "payload_example": {
+        "user": "username",
+        "session_id": "uuid-string",
+        "time": "2024-01-01T12:45:00.000Z",
+        "app": "your_app_name"
+      }
+    },
+    {
+      "path": "/api/sessions/end",
+      "method": "POST",
+      "description": "End an active or paused session",
+      "requires_auth": true,
+      "payload_example": {
+        "user": "username",
+        "session_id": "uuid-string",
+        "time": "2024-01-01T13:00:00.000Z",
+        "app": "your_app_name"
+      }
+    },
+    {
+      "path": "/api/sessions/heatmap",
+      "method": "POST",
+      "description": "Get session heatmap data",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/sessions/most-active",
+      "method": "POST",
+      "description": "Get most active days and hours",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/sessions/stats",
+      "method": "POST",
+      "description": "Get session statistics",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/sessions/summary",
+      "method": "POST",
+      "description": "Get summary of all sessions including total count, time and averages",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/sessions/public-summary",
+      "method": "POST",
+      "description": "Get summary of all sessions including total count, time and averages (public)",
+      "requires_auth": false,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/sessions/timeline",
+      "method": "POST",
+      "description": "Get session timeline showing when sessions were created and ended",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/sessions/public-timeline",
+      "method": "POST",
+      "description": "Get session timeline showing when sessions were created and ended (public)",
+      "requires_auth": false,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/sessions/daily-time-spent",
+      "method": "POST",
+      "description": "Get daily time spent for all sessions",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/sessions/time-by-page",
+      "method": "POST",
+      "description": "Get time spent on each page",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/sessions/session-timeline-detail",
+      "method": "POST",
+      "description": "Get detailed session timeline including events",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/api/pages/track",
+      "method": "POST",
+      "description": "Track page visit and time spent",
+      "requires_auth": false,
+      "payload_example": {
+        "user": "username",
+        "page": "/page-path",
+        "timespent": 120,
+        "app": "your_app_name"
+      }
+    },
+    {
+      "path": "/api/pages/stats",
+      "method": "POST",
+      "description": "Get page statistics including visit counts and average time spent",
+      "requires_auth": true,
+      "payload_example": {
+        "app": "your_app_name",
+        "user": "username"
+      }
+    },
+    {
+      "path": "/",
+      "method": "POST",
+      "description": "Root health check",
+      "requires_auth": false,
+      "payload_example": {
+        "app": "your_app_name"
+      }
+    },
+    {
+      "path": "/api/health",
+      "method": "POST",
+      "description": "API health check",
+      "requires_auth": false,
+      "payload_example": {
+        "app": "your_app_name"
+      }
+    }
+  ]
+} 
