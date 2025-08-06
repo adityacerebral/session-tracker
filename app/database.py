@@ -9,6 +9,8 @@ class Database:
 db = Database()
 
 async def get_database():
+    if db.database is None:
+        raise RuntimeError("Database not connected. Did you forget to call connect_to_mongo()?")
     return db.database
 
 async def connect_to_mongo():
