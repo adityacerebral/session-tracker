@@ -10,7 +10,13 @@ db = Database()
 
 async def get_database():
     if db.database is None:
-        raise RuntimeError("Database not connected. Did you forget to call connect_to_mongo()?")
+        # Fallback: connect on demand
+        db.client = AsyncIOMotorClient(
+            settings.mongodb_url,
+            tlsCAFile=certifi.where()
+        )
+        db.database = db.client[settings.database_name]
+        print("✅ Connected to MongoDB (fallback in get_database)")
     return db.database
 
 async def connect_to_mongo():
