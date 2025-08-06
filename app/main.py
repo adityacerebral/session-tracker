@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
-from app.database import connect_to_mongo, close_mongo_connection
+from app.database import connect_to_mongo
 from app.api.routes import auth_router, session_router, page_router
 from app.models.models import AppRequest
 from datetime import datetime
